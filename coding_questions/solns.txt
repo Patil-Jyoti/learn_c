@@ -1,0 +1,2183 @@
+											Day1
+1.user_input
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+#include <stdio.h>
+
+int main() 
+{
+    char character;
+    char word[50];
+    char sentence[100];
+
+    // Read a single character
+    scanf(" %c", &character);
+
+    // Read a single word
+    scanf("%s", word);
+
+    // Read a full sentence (including spaces)
+    getchar(); // Remove the newline left by scanf
+    fgets(sentence, sizeof(sentence), stdin);
+
+    // Printing the inputs
+    printf("%c\n", character);
+    printf("%s\n", word);
+    printf("%s", sentence); 
+
+    return 0;
+}
+
+
+2.Ascii
+
+#include <stdio.h>
+#include <ctype.h>
+int main() {
+    char ch;
+    scanf("%c", &ch);
+
+    if (isalpha(ch)) {  // Check if ch is a letter
+        if (islower(ch)) {
+            ch = toupper(ch);  // Convert lowercase to uppercase
+        } else {
+            ch = tolower(ch);  // Convert uppercase to lowercase
+        }
+        printf("%c\n", ch);
+    } else {
+        printf("Invalid input\n");  // Not a letter
+    }
+    return 0;
+}
+
+3.floating
+
+#include <stdio.h>
+int main() {
+    float num;
+    int intPart;
+
+    // Take input
+    printf("Enter a floating-point number: ");
+    scanf("%f", &num);
+
+    // Cast to integer to truncate fractional part
+    intPart = (int)num;
+
+    // Print the results
+    printf("Floating-point number: %.2f\n", num);  // Print with 2 decimal places
+    printf("Integer part: %d\n", intPart);         // Print integer part after truncation
+
+    return 0;
+}
+
+4.Format_output
+
+#include <stdio.h>
+
+int main() {
+    unsigned int hexValue;
+
+    // Read hexadecimal input
+    printf("Enter a hexadecimal value (up to 4 digits): ");
+    scanf("%x", &hexValue);
+
+    // Print outputs with width of 5
+    printf("%5d\n", hexValue);    // Decimal representation with width 5
+    printf("%5o\n", hexValue);    // Octal representation with width 5
+    printf("%5X\n", hexValue);    // Uppercase hexadecimal with width 5
+
+    return 0;
+}
+
+5.if-else
+#include <stdio.h>
+
+int main() {
+    int num;
+
+    // Take input
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    // Check conditions
+    if (num >= 10 && num <= 20 && num % 2 == 0) {
+        printf("Valid\n");  // Number is between 10 and 20 and is even
+    } else {
+        printf("Invalid\n"); // Either not in range or not even
+    }
+
+    return 0;
+}
+======================================================================================											Day2
+1.contn1
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    // Check the range and print the corresponding word or message
+    if (n == 1) {
+        printf("one\n");
+    } else if (n == 2) {
+        printf("two\n");
+    } else if (n == 3) {
+        printf("three\n");
+    } else if (n == 4) {
+        printf("four\n");
+    } else if (n == 5) {
+        printf("five\n");
+    } else if (n == 6) {
+        printf("six\n");
+    } else if (n == 7) {
+        printf("seven\n");
+    } else if (n == 8) {
+        printf("eight\n");
+    } else if (n == 9) {
+        printf("nine\n");
+    } else {
+        printf("Greater than 9\n");
+    }
+
+    return 0;
+}
+
+2.condtn2
+#include <stdio.h>
+
+int main() {
+    int age = 25;          // Age of the person
+    int voting_age = 18;  // Voting age limit
+
+    // Compare age with voting_age
+    if (age >= voting_age) {
+        printf("Old enough to vote!\n");
+    } else {
+        printf("Not old enough to vote.\n");
+    }
+
+    return 0;
+}
+
+3.condtn3
+#include <stdio.h>
+
+int main() {
+    int age;
+    float monthly_income;
+
+    // Input age and monthly income
+    printf("Enter age: ");
+    scanf("%d", &age);
+    printf("Enter monthly income: ");
+    scanf("%f", &monthly_income);
+
+    // Determine eligibility
+    if (age < 18) {
+        printf("Not Eligible\n");
+    } else if (age >= 18 && age <= 25) {
+        if (monthly_income >= 5000) {
+            printf("Eligible\n");
+        } else {
+            printf("Not Eligible\n");
+        }
+    } else if (age >= 26 && age <= 40) {
+        if (monthly_income >= 10000) {
+            printf("Eligible\n");
+        } else {
+            printf("Not Eligible\n");
+        }
+    } else if (age > 40) {
+        if (monthly_income >= 15000) {
+            printf("Eligible\n");
+        } else {
+            printf("Not Eligible\n");
+        }
+    }
+
+    return 0;
+}
+
+4.switch
+#include <stdio.h>
+
+int main() {
+    int score;
+
+    // Input the score
+    printf("Enter score (0-100): ");
+    scanf("%d", &score);
+
+    // Ensure the score is within valid range
+    if (score < 0 || score > 100) {
+        printf("Invalid score. Please enter a score between 0 and 100.\n");
+        return 1; // Exit the program with an error code
+    }
+
+    // Determine the grade using a switch statement
+    switch (score / 10) {
+        case 10: // Score is 100
+        case 9:  // Scores from 90 to 99
+            printf("Grade: A\n");
+            break;
+        case 8:  // Scores from 80 to 89
+            printf("Grade: B\n");
+            break;
+        case 7:  // Scores from 70 to 79
+            printf("Grade: C\n");
+            break;
+        case 6:  // Scores from 60 to 69
+            printf("Grade: D\n");
+            break;
+        default: // Scores below 60 (0-59)
+            printf("Grade: F\n");
+            break;
+    }
+
+    return 0;
+}
+
+5.swtch
+#include <stdio.h>
+
+int main() {
+    int units;
+    int bill;
+
+    // Input the number of units consumed
+    printf("Enter the number of units consumed (1-1000): ");
+    scanf("%d", &units);
+
+    // Ensure the input is within valid range
+    if (units < 1 || units > 1000) {
+        printf("Invalid input. Please enter a number of units between 1 and 1000.\n");
+        return 1; // Exit the program with an error code
+    }
+
+    // Calculate the bill based on the number of units consumed
+    if (units <= 100) {
+        bill = units * 5; // 5 per unit for the first 100 units
+    } else if (units <= 200) {
+        bill = (100 * 5) + ((units - 100) * 8); // 5 for first 100, 8 for the next 100
+    } else {
+        bill = (100 * 5) + (100 * 8) + ((units - 200) * 10); // 5 for first 100, 8 for next 100, 10 for above 200
+    }
+
+    // Output the total bill
+    printf("Total electricity bill: %d\n", bill);
+
+    return 0;
+}
+
+======================================================================================
+
+1.Loops
+#include <stdio.h>
+
+int main() {
+    int a, b;
+    scanf("%d", &a);
+    scanf("%d", &b);
+
+    for (int n = a; n <= b; n++) {
+        if (n >= 1 && n <= 9) {
+            // Print the English word for numbers 1 through 9
+            switch (n) {
+                case 1: printf("one\n"); break;
+                case 2: printf("two\n"); break;
+                case 3: printf("three\n"); break;
+                case 4: printf("four\n"); break;
+                case 5: printf("five\n"); break;
+                case 6: printf("six\n"); break;
+                case 7: printf("seven\n"); break;
+                case 8: printf("eight\n"); break;
+                case 9: printf("nine\n"); break;
+            }
+        } else {
+            // For numbers greater than 9, check if even or odd
+            if (n % 2 == 0) {
+                printf("even\n");
+            } else {
+                printf("odd\n");
+            }
+        }
+    }
+
+    return 0;
+}
+
+2.loop2
+
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter the maximum exponent: ");
+    scanf("%d", &n);
+
+    int power = 1;  // This will represent 2^0
+    int i = 1;      // Start from the first exponent
+
+    while (i <= n) {
+        power = power * 2;  // Update power to the next power of 2
+        printf("%d ", power); // Print the current power of 2
+        i++;                  // Increment the exponent
+    }
+    printf("\n");  // Print a newline at the end
+
+    return 0;
+}
+
+3.loops
+#include <stdio.h>
+
+int main() {
+    int num;
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    int count = 0; // Initialize count to 0
+
+    // Handle negative numbers by taking the absolute value
+    if (num < 0) {
+        num = -num;
+    }
+
+    // Loop to count digits
+    while (num > 0) {
+        num = num / 10; // Remove the right-most digit
+        count++;        // Increment the count
+    }
+
+    printf("%d\n", count); // Print the number of digits
+
+    return 0;
+}
+
+4.loops4
+#include <stdio.h>
+
+int main() {
+    int num;
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    // Handle special cases for numbers less than 2
+    if (num < 2) {
+        printf("No\n"); // Numbers less than 2 are not prime
+        return 0;
+    }
+
+    int isPrime = 1; // Assume the number is prime initially
+    int i = 2;       // Start checking for factors from 2
+
+    // Check divisibility using a while loop
+    while (i * i <= num) { // Check up to the square root of num
+        if (num % i == 0) { // If num is divisible by i
+            isPrime = 0;    // Not a prime number
+            break;          // Exit the loop
+        }
+        i++; // Increment i to check the next potential factor
+    }
+
+    // Output the result
+    if (isPrime) {
+        printf("Yes\n"); // The number is prime
+    } else {
+        printf("No\n");  // The number is not prime
+    }
+
+    return 0;
+}
+
+5.loops
+#include <stdio.h>
+
+int main() {
+    int number;
+    printf("Enter a five-digit integer: ");
+    scanf("%d", &number);
+
+    int sum = 0; // Initialize sum of digits to 0
+
+    // Loop to extract and sum the digits
+    while (number > 0) {
+        sum += number % 10; // Add the last digit to sum
+        number = number / 10; // Remove the last digit
+    }
+
+    printf("%d\n", sum); // Print the sum of the digits
+
+    return 0;
+}
+
+======================================================================================
+									Day-4
+1.ptr1
+#include <stdio.h>
+#include <stdlib.h> // For abs()
+
+void update(int *a, int *b) {
+    int sum = *a + *b;                // Calculate the sum
+    int absolute_difference = abs(*a - *b); // Calculate the absolute difference
+
+    *a = sum;                         // Update the value at pointer a
+    *b = absolute_difference;         // Update the value at pointer b
+}
+
+int main() {
+    int x, y;
+    // Read two integers
+    scanf("%d", &x);
+    scanf("%d", &y);
+    
+    // Call the update function
+    update(&x, &y);
+    
+    // Print the modified values
+    printf("%d\n%d\n", x, y);
+    
+    return 0;
+}
+
+2.ptr2
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+bool isSubsequence(char *s, char *t) {
+    int sLen = strlen(s);
+    int tLen = strlen(t);
+    int sIndex = 0, tIndex = 0;
+
+    while (sIndex < sLen && tIndex < tLen) {
+        if (s[sIndex] == t[tIndex]) {
+            sIndex++; // Move to the next character in s
+        }
+        tIndex++; // Always move to the next character in t
+    }
+
+    // If we have matched all characters of s, return true
+    return sIndex == sLen;
+}
+
+int main() {
+    char s[100], t[100];
+
+    // Input strings
+    printf("Enter string s: ");
+    scanf("%s", s);
+    printf("Enter string t: ");
+    scanf("%s", t);
+
+    // Check if s is a subsequence of t
+    if (isSubsequence(s, t)) {
+        printf("Output: true\n");
+    } else {
+        printf("Output: false\n");
+    }
+
+    return 0;
+}
+
+3.ptr3
+#include <stdio.h>
+
+int main() {
+    int n; // Number of elements in the array
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    // Constraints
+    if (n < 1 || n > 100) {
+        printf("The number of elements must be between 1 and 100.\n");
+        return 1;
+    }
+
+    int arr[100]; // Array to hold the elements
+    printf("Enter %d integers separated by spaces: ", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    int target;
+    printf("Enter the target element to count: ");
+    scanf("%d", &target);
+
+    // Pointer to the array
+    int *ptr = arr; 
+    int count = 0; // Initialize count to 0
+
+    // Count occurrences of the target element
+    for (int i = 0; i < n; i++) {
+        if (*(ptr + i) == target) {
+            count++; // Increment count if the target matches
+        }
+    }
+
+    // Output the result
+    printf("Count of occurrences of %d: %d\n", target, count);
+
+    return 0;
+}
+
+4.ptr4
+#include <stdio.h>
+
+int main() {
+    int n; // Number of elements in the array
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    // Constraints
+    if (n < 1 || n > 100) {
+        printf("The number of elements must be between 1 and 100.\n");
+        return 1;
+    }
+
+    int arr[100]; // Array to hold the elements
+    printf("Enter %d integers separated by spaces: ", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Pointers for the start and end of the array
+    int *start = arr;
+    int *end = arr + n - 1;
+
+    // Reverse the array using pointers
+    while (start < end) {
+        // Swap the values pointed to by start and end
+        int temp = *start;
+        *start = *end;
+        *end = temp;
+
+        // Move the pointers
+        start++;
+        end--;
+    }
+
+    // Output the reversed array
+    printf("Reversed array: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+5.recursion
+#include <stdio.h>
+#include <stdlib.h>
+
+// Function to calculate GCD using the Euclidean algorithm
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+// Comparator function for qsort
+int compare(const void *a, const void *b) {
+    return (*(int *)b - *(int *)a; // Sort in descending order
+}
+
+int main() {
+    int T; // Number of test cases
+    scanf("%d", &T);
+
+    while (T--) {
+        int N; // Size of the array
+        scanf("%d", &N);
+        int *arr = (int *)malloc(N * sizeof(int)); // Dynamic array allocation
+
+        // Read the array elements
+        for (int i = 0; i < N; i++) {
+            scanf("%d", &arr[i]);
+        }
+
+        // Sort the array in descending order to easily get the largest and second largest distinct values
+        qsort(arr, N, sizeof(int), compare);
+
+        // Find the first two distinct largest numbers
+        int max1 = arr[0];
+        int max2 = arr[1];
+
+        for (int i = 1; i < N; i++) {
+            if (arr[i] < max1) {
+                max2 = arr[i]; // Found the second distinct largest
+                break; // No need to check further
+            }
+        }
+
+        // Calculate the GCD
+        int sumMaxPair = max1 + max2;
+        int resultGCD = gcd(sumMaxPair, max2);
+
+        // Output the result
+        printf("%d\n", resultGCD);
+
+        free(arr); // Free allocated memory
+    }
+
+    return 0;
+}
+
+5.ptr5
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+int isPalindrome(const char *s) {
+    // Initialize pointers for the start and end of the string
+    int left = 0;
+    int right = strlen(s) - 1;
+
+    // Check for palindrome
+    while (left < right) {
+        // Move left pointer until we find an alphanumeric character
+        while (left < right && !isalnum(s[left])) {
+            left++;
+        }
+        // Move right pointer until we find an alphanumeric character
+        while (left < right && !isalnum(s[right])) {
+            right--;
+        }
+        // Compare characters
+        if (tolower(s[left]) != tolower(s[right])) {
+            return 0; // Not a palindrome
+        }
+        left++;
+        right--;
+    }
+    return 1; // It is a palindrome
+}
+
+int main() {
+    char s[1000]; // Buffer to hold the input string
+    printf("Enter a string: ");
+    fgets(s, sizeof(s), stdin); // Read input string
+
+    // Remove the newline character from fgets if present
+    s[strcspn(s, "\n")] = 0;
+
+    if (isPalindrome(s)) {
+        printf("Output: true\n");
+    } else {
+        printf("Output: false\n");
+    }
+
+    return 0;
+}
+
+=============================================================================================
+										day5
+1.arr1
+#include <stdio.h>
+
+int main() {
+    int n; // Size of the array
+    scanf("%d", &n); // Read the size
+
+    int arr[n]; // Declare an array of size n
+
+    // Read the elements of the array
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Print the array in reverse order
+    for (int i = n - 1; i >= 0; i--) {
+        printf("%d", arr[i]); // Print each element
+        if (i != 0) { // Print a space after each element except the last
+            printf(" ");
+        }
+    }
+
+    printf("\n"); // New line after printing the array
+    return 0;
+}
+
+2.arr2
+#include <stdio.h>
+
+int main() {
+    int n, element; // Size of the array and the element to search for
+    scanf("%d %d", &n, &element); // Read size and element
+
+    int arr[n]; // Declare an array of size n
+
+    // Read the elements of the array
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Search for the element in the array
+    int found = 0; // Flag to indicate if the element was found
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == element) {
+            found = 1; // Set flag to 1 if the element is found
+            break; // Exit the loop early if the element is found
+        }
+    }
+
+    // Output result based on the flag
+    if (found) {
+        printf("YES\n");
+    } else {
+        printf("NO\n");
+    }
+
+    return 0;
+}
+
+3.arr3
+#include <stdio.h>
+
+int main() {
+    int n; // Size of the array
+    scanf("%d", &n); // Read the size
+
+    int arr[n]; // Declare an array of size n
+    int sum = 0; // Variable to hold the sum of the integers
+
+    // Read the elements of the array and calculate the sum
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]); // Read each element
+        sum += arr[i]; // Add each element to sum
+    }
+
+    // Print the sum of the integers
+    printf("%d\n", sum);
+
+    return 0;
+}
+
+4.arr4
+#include <stdio.h>
+
+int main() {
+    int T; // Number of test cases
+    scanf("%d", &T); // Read the number of test cases
+
+    for (int i = 0; i < T; i++) {
+        int N, X; // Number of items and minimum freshness value
+        scanf("%d %d", &N, &X); // Read N and X
+
+        int freshness[N]; // Array to store freshness values
+        int cost[N]; // Array to store cost values
+        int totalCost = 0; // Variable to store total cost
+
+        // Read the freshness values
+        for (int j = 0; j < N; j++) {
+            scanf("%d", &freshness[j]);
+        }
+
+        // Read the cost values
+        for (int j = 0; j < N; j++) {
+            scanf("%d", &cost[j]);
+        }
+
+        // Calculate the total cost of items with sufficient freshness
+        for (int j = 0; j < N; j++) {
+            if (freshness[j] >= X) {
+                totalCost += cost[j]; // Add cost to total if freshness is sufficient
+            }
+        }
+
+        // Print the total cost for this test case
+        printf("%d\n", totalCost);
+    }
+
+    return 0;
+}
+
+5.arr5
+#include <stdio.h>
+#include <limits.h>
+
+int main() {
+    int T; // Number of test cases
+    scanf("%d", &T); // Read the number of test cases
+
+    while (T--) {
+        int N; // Size of the array
+        scanf("%d", &N); // Read the size of the array
+        
+        int arr[N]; // Array to hold the integers
+        for (int i = 0; i < N; i++) {
+            scanf("%d", &arr[i]); // Read the elements of the array
+        }
+
+        int max1 = INT_MIN, max2 = INT_MIN; // Initialize maximum and second maximum
+        
+        // Find the largest and second largest distinct integers
+        for (int i = 0; i < N; i++) {
+            if (arr[i] > max1) {
+                max2 = max1; // Update second largest
+                max1 = arr[i]; // Update largest
+            } else if (arr[i] > max2 && arr[i] < max1) {
+                max2 = arr[i]; // Update second largest only
+            }
+        }
+
+        // Calculate and print the maximum sum of the two distinct integers
+        printf("%d\n", max1 + max2);
+    }
+
+    return 0;
+}
+
+=============================================================================================
+										Day6
+1.string1										
+#include <stdio.h>
+#include <string.h>
+
+int is_vowel(char c) {
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+int main() {
+    int T; // Number of test cases
+    scanf("%d", &T);
+
+    while (T--) {
+        char str[101]; // Array to hold the string (maximum length 100 + 1 for null terminator)
+        scanf("%s", str);
+        
+        int length = strlen(str);
+        int max_vowel_length = 0; // To keep track of the maximum contiguous vowel substring length
+        int current_vowel_length = 0; // To track the current length of contiguous vowels
+
+        for (int i = 0; i < length; i++) {
+            if (is_vowel(str[i])) {
+                current_vowel_length++; // Increase the current vowel length
+            } else {
+                if (current_vowel_length > max_vowel_length) {
+                    max_vowel_length = current_vowel_length; // Update maximum if current is greater
+                }
+                current_vowel_length = 0; // Reset for the next segment
+            }
+        }
+        // Check again at the end in case the string ends with vowels
+        if (current_vowel_length > max_vowel_length) {
+            max_vowel_length = current_vowel_length;
+        }
+
+        // Check if the maximum vowel length is greater than 0
+        if (max_vowel_length > 0) {
+            printf("HAPPY\n");
+        } else {
+            printf("SAD\n");
+        }
+    }
+
+    return 0;
+}
+
+2.str2
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+void convertToTitleCase(char *str) {
+    int len = strlen(str);
+    int isPrevSpace = 1; // Flag to track if the previous character was a space
+
+    for (int i = 0; i < len; i++) {
+        // Check if current character is a space
+        if (str[i] == ' ') {
+            isPrevSpace = 1; // Set flag for next word
+        } else {
+            if (isPrevSpace) { // If it's the start of a word
+                if (isupper(str[i])) {
+                    // If the first letter is uppercase, leave it as is
+                    isPrevSpace = 0; // Word starts
+                } else {
+                    // Capitalize the first letter of the word
+                    str[i] = toupper(str[i]);
+                    isPrevSpace = 0; // Word starts
+                }
+            } else {
+                // Convert to lowercase if not the first letter of the word
+                str[i] = tolower(str[i]);
+            }
+        }
+    }
+}
+
+int main() {
+    int T; // Number of test cases
+    scanf("%d", &T);
+    getchar(); // To consume the newline after T
+
+    while (T--) {
+        char str[1001]; // Array to hold the string (max length 1000 + 1 for null terminator)
+        fgets(str, sizeof(str), stdin); // Read the line
+        str[strcspn(str, "\n")] = 0; // Remove trailing newline if present
+
+        convertToTitleCase(str);
+        printf("%s\n", str);
+    }
+
+    return 0;
+}
+
+3.str3
+#include <stdio.h>
+#include <string.h>
+
+void encodeDNA(char *binaryString, char *encodedString, int length) {
+    int j = 0; // Index for the encoded string
+
+    for (int i = 0; i < length; i += 2) {
+        // Take two characters from the binary string
+        char pair[3] = {binaryString[i], binaryString[i + 1], '\0'};
+
+        // Encode based on the pair
+        if (strcmp(pair, "00") == 0) {
+            encodedString[j++] = 'A';
+        } else if (strcmp(pair, "01") == 0) {
+            encodedString[j++] = 'T';
+        } else if (strcmp(pair, "10") == 0) {
+            encodedString[j++] = 'C';
+        } else if (strcmp(pair, "11") == 0) {
+            encodedString[j++] = 'G';
+        }
+    }
+
+    encodedString[j] = '\0'; // Null-terminate the encoded string
+}
+
+int main() {
+    int T; // Number of test cases
+    scanf("%d", &T);
+    
+    while (T--) {
+        int length;
+        scanf("%d", &length);
+        
+        char binaryString[1001]; // Assuming max length of binary string is 1000
+        char encodedString[501];  // Maximum length of encoded string will be half of the binary string length
+        
+        scanf("%s", binaryString);
+        
+        // Encode the DNA
+        encodeDNA(binaryString, encodedString, length);
+        
+        // Print the encoded DNA sequence
+        printf("%s\n", encodedString);
+    }
+
+    return 0;
+}
+
+4.str4
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char sentence[1001]; // Assuming the maximum length of the sentence is 1000 characters
+
+    // Read the input sentence
+    fgets(sentence, sizeof(sentence), stdin);
+    
+    // Replace newline character with null terminator if present
+    sentence[strcspn(sentence, "\n")] = '\0';
+
+    // Tokenize the sentence using space as the delimiter
+    char *word = strtok(sentence, " ");
+
+    // Print each word in a new line
+    while (word != NULL) {
+        printf("%s\n", word);
+        word = strtok(NULL, " "); // Get the next word
+    }
+
+    return 0;
+}
+
+5.str5
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char num[1001]; // Assuming a maximum input length of 1000 characters
+    int digitCount[10] = {0}; // Array to hold the frequency of digits 0-9
+
+    // Read the input string
+    scanf("%s", num);
+
+    // Iterate through each character in the string
+    for (int i = 0; i < strlen(num); i++) {
+        if (isdigit(num[i])) { // Check if the character is a digit
+            digitCount[num[i] - '0']++; // Increment the count for the corresponding digit
+        }
+    }
+
+    // Print the frequencies of digits from 0 to 9
+    for (int i = 0; i < 10; i++) {
+        printf("%d", digitCount[i]);
+        if (i < 9) {
+            printf(" "); // Print space between numbers
+        }
+    }
+    
+    return 0;
+}
+
+6.str6
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int T; // Number of test cases
+    scanf("%d", &T);
+    while (T--) {
+        char hidden[6]; // Hidden word (length 5 + 1 for null terminator)
+        char guess[6];  // Guess word (length 5 + 1 for null terminator)
+        char result[6]; // Result string (length 5 + 1 for null terminator)
+
+        // Read hidden word and guess word
+        scanf("%s %s", hidden, guess);
+
+        // Initialize result string
+        result[5] = '\0'; // Null-terminate the string
+
+        // Generate result based on comparisons
+        for (int i = 0; i < 5; i++) {
+            if (guess[i] == hidden[i]) {
+                result[i] = 'G'; // Good
+            } else {
+                result[i] = 'B'; // Bad
+            }
+        }
+
+        // Print the result string
+        printf("%s\n", result);
+    }
+
+    return 0;
+}
+
+  =============================================================================================
+												Day7
+1.struct
+#include <stdio.h>
+
+int main() {
+    int n; // Number of boxes
+    scanf("%d", &n);
+
+    for (int i = 0; i < n; i++) {
+        int length, width, height;
+        scanf("%d %d %d", &length, &width, &height);
+
+        // Check if the height is less than 40
+        if (height < 40) {
+            int volume = length * width * height; // Calculate volume
+            printf("%d\n", volume); // Print the volume
+        }
+    }
+
+    return 0;
+}
+
+2.struct
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_TITLE_LENGTH 30
+#define MAX_AUTHOR_LENGTH 30
+
+// Define the Book structure
+struct Book {
+    char title[MAX_TITLE_LENGTH];
+    char author[MAX_AUTHOR_LENGTH];
+    struct Book *next; // Pointer to the next Book
+};
+
+// Function to add a new book to the list
+struct Book* addBook(struct Book *head) {
+    struct Book *newBook = (struct Book *)malloc(sizeof(struct Book)); // Allocate memory for new book
+    if (newBook == NULL) {
+        printf("Memory allocation failed!\n");
+        return head; // Return the current head if memory allocation fails
+    }
+    
+    // Input title and author
+    printf("Enter book title: ");
+    scanf(" %[^\n]", newBook->title); // Read title including spaces
+    printf("Enter author: ");
+    scanf(" %[^\n]", newBook->author); // Read author including spaces
+    
+    newBook->next = head; // Insert the new book at the beginning of the list
+    return newBook; // Return the new head of the list
+}
+
+// Function to display all books in the list
+void displayBooks(struct Book *head) {
+    struct Book *current = head; // Start from the head of the list
+    if (current == NULL) {
+        printf("No books in the list.\n");
+        return;
+    }
+    printf("List of Books:\n");
+    while (current != NULL) {
+        printf("Title: %s, Author: %s\n", current->title, current->author);
+        current = current->next; // Move to the next book
+    }
+}
+
+// Function to free the memory allocated for the linked list
+void freeBooks(struct Book *head) {
+    struct Book *current = head;
+    struct Book *next;
+    
+    while (current != NULL) {
+        next = current->next; // Store the next book
+        free(current); // Free the current book
+        current = next; // Move to the next book
+    }
+}
+
+int main() {
+    struct Book *head = NULL; // Initialize the head of the linked list
+    char choice;
+
+    // Loop to add books until the user decides to stop
+    do {
+        head = addBook(head); // Add a new book
+        printf("Do you want to add another book? (y/n): ");
+        scanf(" %c", &choice); // Read user's choice
+    } while (choice == 'y' || choice == 'Y');
+
+    displayBooks(head); // Display all books
+    freeBooks(head); // Free the memory allocated for books
+
+    return 0;
+}
+
+
+3.strct3
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_EMPLOYEES 100
+#define MAX_NAME_LENGTH 30
+
+// Define the Employee structure
+struct Employee {
+    int id;
+    char name[MAX_NAME_LENGTH];
+    int salary;
+};
+
+// Function to compare two employees by salary for sorting
+int compare(const void *a, const void *b) {
+    struct Employee *empA = *(struct Employee **)a;
+    struct Employee *empB = *(struct Employee **)b;
+    return empB->salary - empA->salary; // Sort in descending order
+}
+
+// Function to input employee details
+void inputEmployeeDetails(struct Employee *emp) {
+    printf("Enter employee ID: ");
+    scanf("%d", &emp->id);
+    printf("Enter employee name: ");
+    scanf(" %[^\n]", emp->name); // Read string with spaces
+    printf("Enter employee salary: ");
+    scanf("%d", &emp->salary);
+}
+
+// Function to print employee details
+void printEmployeeDetails(struct Employee *emp) {
+    printf("ID: %d, Name: %s, Salary: %d\n", emp->id, emp->name, emp->salary);
+}
+
+int main() {
+    struct Employee *employees[MAX_EMPLOYEES];
+    int count = 0;
+
+    // Input employee details
+    while (count < MAX_EMPLOYEES) {
+        struct Employee *newEmployee = (struct Employee *)malloc(sizeof(struct Employee));
+        if (newEmployee == NULL) {
+            printf("Memory allocation failed!\n");
+            break; // Exit if memory allocation fails
+        }
+        inputEmployeeDetails(newEmployee);
+        employees[count] = newEmployee; // Store pointer in the array
+        count++;
+
+        char choice;
+        printf("Do you want to add another employee? (y/n): ");
+        scanf(" %c", &choice);
+        if (choice == 'n' || choice == 'N') {
+            break; // Exit the loop if user chooses not to continue
+        }
+    }
+
+    // Sort employees by salary in descending order
+    qsort(employees, count, sizeof(struct Employee *), compare);
+
+    // Print sorted employee details
+    printf("\nSorted Employee List by Salary (Descending Order):\n");
+    for (int i = 0; i < count; i++) {
+        printEmployeeDetails(employees[i]);
+        free(employees[i]); // Free allocated memory for each employee
+    }
+
+    return 0;
+}
+
+4.strct4
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_EMPLOYEES 100
+#define MAX_NAME_LENGTH 30
+
+// Define the Employee structure
+struct Employee {
+    int id;
+    char name[MAX_NAME_LENGTH];
+    int salary;
+};
+
+// Function to compare two employees by salary for sorting
+int compare(const void *a, const void *b) {
+    struct Employee *empA = *(struct Employee **)a;
+    struct Employee *empB = *(struct Employee **)b;
+    return empB->salary - empA->salary; // Sort in descending order
+}
+
+// Function to input employee details
+void inputEmployeeDetails(struct Employee *emp) {
+    printf("Enter employee ID: ");
+    scanf("%d", &emp->id);
+    printf("Enter employee name: ");
+    scanf(" %[^\n]", emp->name); // Read string with spaces
+    printf("Enter employee salary: ");
+    scanf("%d", &emp->salary);
+}
+
+// Function to print employee details
+void printEmployeeDetails(struct Employee *emp) {
+    printf("ID: %d, Name: %s, Salary: %d\n", emp->id, emp->name, emp->salary);
+}
+
+int main() {
+    struct Employee *employees[MAX_EMPLOYEES];
+    int count = 0;
+
+    // Input employee details
+    while (count < MAX_EMPLOYEES) {
+        struct Employee *newEmployee = (struct Employee *)malloc(sizeof(struct Employee));
+        if (newEmployee == NULL) {
+            printf("Memory allocation failed!\n");
+            break; // Exit if memory allocation fails
+        }
+        inputEmployeeDetails(newEmployee);
+        employees[count] = newEmployee; // Store pointer in the array
+        count++;
+
+        char choice;
+        printf("Do you want to add another employee? (y/n): ");
+        scanf(" %c", &choice);
+        if (choice == 'n' || choice == 'N') {
+            break; // Exit the loop if user chooses not to continue
+        }
+    }
+
+    // Sort employees by salary in descending order
+    qsort(employees, count, sizeof(struct Employee *), compare);
+
+    // Print sorted employee details
+    printf("\nSorted Employee List by Salary (Descending Order):\n");
+    for (int i = 0; i < count; i++) {
+        printEmployeeDetails(employees[i]);
+        free(employees[i]); // Free allocated memory for each employee
+    }
+
+    return 0;
+}
+
+5.strct5
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+// Structure to hold triangle information
+struct Triangle {
+    int a, b, c; // sides of the triangle
+    double area; // area of the triangle
+};
+
+// Function to calculate the area of a triangle using Heron's formula
+double calculateArea(int a, int b, int c) {
+    double s = (a + b + c) / 2.0; // semi-perimeter
+    return sqrt(s * (s - a) * (s - b) * (s - c)); // area calculation
+}
+
+// Comparison function for sorting triangles by area
+int compareTriangles(const void *a, const void *b) {
+    struct Triangle *triangleA = (struct Triangle *)a;
+    struct Triangle *triangleB = (struct Triangle *)b;
+    
+    // Compare areas (descending order)
+    if (triangleA->area < triangleB->area) return 1;
+    if (triangleA->area > triangleB->area) return -1;
+    return 0;
+}
+
+int main() {
+    int n;
+    
+    // Read number of triangles
+    scanf("%d", &n);
+    
+    struct Triangle triangles[n];
+    
+    // Input triangles and calculate their areas
+    for (int i = 0; i < n; i++) {
+        scanf("%d %d %d", &triangles[i].a, &triangles[i].b, &triangles[i].c);
+        triangles[i].area = calculateArea(triangles[i].a, triangles[i].b, triangles[i].c);
+    }
+
+    // Sort triangles based on area in descending order
+    qsort(triangles, n, sizeof(struct Triangle), compareTriangles);
+
+    // Output the sorted triangles
+    for (int i = 0; i < n; i++) {
+        printf("%d %d %d\n", triangles[i].a, triangles[i].b, triangles[i].c);
+    }
+
+    return 0;
+}
+	
+=============================================================================================
+	
+										Day8
+1.Linked list
+	#include <stdio.h>
+#include <stdlib.h>
+
+// Definition of the ListNode structure
+struct ListNode {
+    int val;
+    struct ListNode *next;
+};
+
+// Helper function to create a new node
+struct ListNode* createNode(int val) {
+    struct ListNode* newNode = (struct ListNode*)malloc(sizeof(struct ListNode));
+    newNode->val = val;
+    newNode->next = NULL;
+    return newNode;
+}
+
+// Function to find the length of the list and the tail node
+int getListLengthAndTail(struct ListNode* head, struct ListNode** tail) {
+    int length = 0;
+    *tail = head;
+    while (*tail && (*tail)->next) {
+        length++;
+        *tail = (*tail)->next;
+    }
+    return length + 1; // +1 because `tail` stops at the last element
+}
+
+// Function to rotate the list to the right by k places
+struct ListNode* rotateRight(struct ListNode* head, int k) {
+    if (!head || k == 0) {
+        return head;  // Return if list is empty or no rotation is needed
+    }
+
+    struct ListNode* tail;
+    int length = getListLengthAndTail(head, &tail);
+
+    // Normalize k if it's larger than the list length
+    k = k % length;
+    if (k == 0) {
+        return head;  // If k is a multiple of length, no rotation is needed
+    }
+
+    // Make the list circular
+    tail->next = head;
+
+    // Find the new tail at position `length - k - 1`
+    struct ListNode* newTail = head;
+    for (int i = 0; i < length - k - 1; i++) {
+        newTail = newTail->next;
+    }
+
+    // The new head is next to the new tail
+    struct ListNode* newHead = newTail->next;
+
+    // Break the circle
+    newTail->next = NULL;
+
+    return newHead;
+}
+
+// Helper function to print the list
+void printList(struct ListNode* head) {
+    while (head) {
+        printf("%d -> ", head->val);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+// Example usage
+int main() {
+    // Creating a linked list: 1 -> 2 -> 3 -> 4 -> 5
+    struct ListNode* head = createNode(1);
+    head->next = createNode(2);
+    head->next->next = createNode(3);
+    head->next->next->next = createNode(4);
+    head->next->next->next->next = createNode(5);
+
+    int k = 2;
+
+    printf("Original List: ");
+    printList(head);
+
+    head = rotateRight(head, k);
+
+    printf("Rotated List: ");
+    printList(head);
+
+    return 0;
+}
+
+2.LL
+#include <stdio.h>
+#include <stdlib.h>
+
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    struct ListNode *next;
+};
+
+// Helper function to create a new node
+struct ListNode* createNode(int val) {
+    struct ListNode* newNode = (struct ListNode*)malloc(sizeof(struct ListNode));
+    newNode->val = val;
+    newNode->next = NULL;
+    return newNode;
+}
+
+// Function to add two numbers represented by linked lists
+struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
+    struct ListNode dummy;  // Dummy node to simplify code
+    struct ListNode *current = &dummy;
+    int carry = 0;
+
+    while (l1 != NULL || l2 != NULL || carry != 0) {
+        int sum = carry;
+
+        if (l1 != NULL) {
+            sum += l1->val;
+            l1 = l1->next;
+        }
+
+        if (l2 != NULL) {
+            sum += l2->val;
+            l2 = l2->next;
+        }
+
+        carry = sum / 10;
+        sum = sum % 10;
+
+        current->next = createNode(sum);
+        current = current->next;
+    }
+
+    return dummy.next;
+}
+
+// Helper function to print the list
+void printList(struct ListNode* head) {
+    while (head != NULL) {
+        printf("%d -> ", head->val);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+// Example usage
+int main() {
+    // Creating first number: 2 -> 4 -> 3 (represents 342)
+    struct ListNode* l1 = createNode(2);
+    l1->next = createNode(4);
+    l1->next->next = createNode(3);
+
+    // Creating second number: 5 -> 6 -> 4 (represents 465)
+    struct ListNode* l2 = createNode(5);
+    l2->next = createNode(6);
+    l2->next->next = createNode(4);
+
+    // Adding the two numbers
+    struct ListNode* result = addTwoNumbers(l1, l2);
+
+    printf("Result: ");
+    printList(result);  // Expected output: 7 -> 0 -> 8 -> NULL
+
+    return 0;
+}
+
+3.Cycle in LL
+#include <stdio.h>
+#include <stdlib.h>
+
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    struct ListNode *next;
+};
+
+// Function to detect cycle in linked list
+int hasCycle(struct ListNode *head) {
+    struct ListNode *slow = head;
+    struct ListNode *fast = head;
+
+    while (fast != NULL && fast->next != NULL) {
+        slow = slow->next;        // move slow pointer by 1
+        fast = fast->next->next;  // move fast pointer by 2
+
+        if (slow == fast) {
+            return 1; // Cycle detected
+        }
+    }
+
+    return 0; // No cycle detected
+}
+
+// Helper function to create a new node
+struct ListNode* createNode(int val) {
+    struct ListNode* newNode = (struct ListNode*)malloc(sizeof(struct ListNode));
+    newNode->val = val;
+    newNode->next = NULL;
+    return newNode;
+}
+
+// Example usage
+int main() {
+    // Creating list: 3 -> 2 -> 0 -> -4, with a cycle back to node at index 1
+    struct ListNode* head = createNode(3);
+    head->next = createNode(2);
+    head->next->next = createNode(0);
+    head->next->next->next = createNode(-4);
+
+    // Creating the cycle
+    head->next->next->next->next = head->next; // points -4 back to 2
+
+    if (hasCycle(head)) {
+        printf("Cycle detected in the linked list.\n");
+    } else {
+        printf("No cycle in the linked list.\n");
+    }
+
+    return 0;
+}
+
+4.merge sorted list
+#include <stdio.h>
+#include <stdlib.h>
+
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    struct ListNode *next;
+};
+
+// Function to create a new node
+struct ListNode* createNode(int val) {
+    struct ListNode* newNode = (struct ListNode*)malloc(sizeof(struct ListNode));
+    newNode->val = val;
+    newNode->next = NULL;
+    return newNode;
+}
+
+// Function to merge two sorted linked lists
+struct ListNode* mergeTwoLists(struct ListNode* list1, struct ListNode* list2) {
+    struct ListNode dummy; // Dummy node to start the merged list
+    struct ListNode *tail = &dummy; // Pointer to build the merged list
+    dummy.next = NULL;
+    
+    // Merge lists by comparing nodes
+    while (list1 != NULL && list2 != NULL) {
+        if (list1->val <= list2->val) {
+            tail->next = list1;
+            list1 = list1->next;
+        } else {
+            tail->next = list2;
+            list2 = list2->next;
+        }
+        tail = tail->next;
+    }
+    
+    // Attach the remaining nodes from list1 or list2
+    tail->next = (list1 != NULL) ? list1 : list2;
+    
+    return dummy.next; // Return the merged list, skipping dummy
+}
+
+// Function to print the linked list
+void printList(struct ListNode *head) {
+    while (head != NULL) {
+        printf("%d -> ", head->val);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+// Example usage
+int main() {
+    // Create list1: 1 -> 2 -> 4
+    struct ListNode* list1 = createNode(1);
+    list1->next = createNode(2);
+    list1->next->next = createNode(4);
+    
+    // Create list2: 1 -> 3 -> 4
+    struct ListNode* list2 = createNode(1);
+    list2->next = createNode(3);
+    list2->next->next = createNode(4);
+    
+    // Merge the two lists
+    struct ListNode* mergedList = mergeTwoLists(list1, list2);
+    
+    // Print the merged list
+    printf("Merged List: ");
+    printList(mergedList);
+
+    return 0;
+}
+
+5.middle element in LL
+#include <stdio.h>
+#include <stdlib.h>
+
+// Definition for singly-linked list.
+struct ListNode {
+    int val;
+    struct ListNode *next;
+};
+
+// Function to create a new node
+struct ListNode* createNode(int val) {
+    struct ListNode* newNode = (struct ListNode*)malloc(sizeof(struct ListNode));
+    newNode->val = val;
+    newNode->next = NULL;
+    return newNode;
+}
+
+// Function to find the middle element of the linked list
+int findMiddleElement(struct ListNode* head) {
+    struct ListNode *slow = head;
+    struct ListNode *fast = head;
+    
+    // Move slow by 1 step and fast by 2 steps until fast reaches the end
+    while (fast != NULL && fast->next != NULL) {
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    
+    // Slow pointer is now at the middle of the list
+    return slow->val;
+}
+
+// Function to print the linked list (for testing)
+void printList(struct ListNode *head) {
+    while (head != NULL) {
+        printf("%d -> ", head->val);
+        head = head->next;
+    }
+    printf("NULL\n");
+}
+
+// Example usage
+int main() {
+    // Creating a linked list: 1 -> 2 -> 3 -> 4 -> 5
+    struct ListNode* head = createNode(1);
+    head->next = createNode(2);
+    head->next->next = createNode(3);
+    head->next->next->next = createNode(4);
+    head->next->next->next->next = createNode(5);
+
+    // Find and print the middle element
+    int middle = findMiddleElement(head);
+    printf("The middle element is: %d\n", middle);
+
+    return 0;
+}
+
+=============================================================================================
+
+											Day9
+1.Max depth of binary tree
+#include <stdio.h>
+#include <stdlib.h>
+
+// Definition for a binary tree node.
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+};
+
+// Function to create a new tree node
+struct TreeNode* createNode(int val) {
+    struct TreeNode* newNode = (struct TreeNode*)malloc(sizeof(struct TreeNode));
+    newNode->val = val;
+    newNode->left = NULL;
+    newNode->right = NULL;
+    return newNode;
+}
+
+// Function to find the maximum depth of the binary tree
+int maxDepth(struct TreeNode* root) {
+    if (root == NULL) {
+        return 0;
+    }
+    
+    int leftDepth = maxDepth(root->left);
+    int rightDepth = maxDepth(root->right);
+    
+    return 1 + (leftDepth > rightDepth ? leftDepth : rightDepth);
+}
+
+// Example usage
+int main() {
+   
+    struct TreeNode* root = createNode(1);
+    root->left = createNode(2);
+    root->right = createNode(3);
+    root->left->left = createNode(4);
+    root->left->right = createNode(5);
+
+    // Find and print the maximum depth of the tree
+    int depth = maxDepth(root);
+    printf("The maximum depth of the binary tree is: %d\n", depth);
+
+    return 0;
+}
+
+2.same tree
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+// Definition for a binary tree node
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+};
+
+// Function to create a new tree node
+struct TreeNode* createNode(int val) {
+    struct TreeNode* newNode = (struct TreeNode*)malloc(sizeof(struct TreeNode));
+    newNode->val = val;
+    newNode->left = NULL;
+    newNode->right = NULL;
+    return newNode;
+}
+
+// Function to check if two binary trees are the same
+bool isSameTree(struct TreeNode* p, struct TreeNode* q) {
+    // Both are NULL, trees are identical
+    if (p == NULL && q == NULL) {
+        return true;
+    }
+
+    // One is NULL and the other is not, trees are not identical
+    if (p == NULL || q == NULL) {
+        return false;
+    }
+
+    // Check if current nodes are the same and recurse for left and right children
+    return (p->val == q->val) && isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+}
+
+int main() {
+    // Example 1:
+    // Tree p: [1,2,3]
+    struct TreeNode* p1 = createNode(1);
+    p1->left = createNode(2);
+    p1->right = createNode(3);
+
+    // Tree q: [1,2,3]
+    struct TreeNode* q1 = createNode(1);
+    q1->left = createNode(2);
+    q1->right = createNode(3);
+
+    if (isSameTree(p1, q1)) {
+        printf("Trees p1 and q1 are the same.\n");  // Expected output: Trees p1 and q1 are the same.
+    } else {
+        printf("Trees p1 and q1 are not the same.\n");
+    }
+
+    // Example 2:
+    // Tree p: [1,2]
+    struct TreeNode* p2 = createNode(1);
+    p2->left = createNode(2);
+
+    // Tree q: [1,null,2]
+    struct TreeNode* q2 = createNode(1);
+    q2->right = createNode(2);
+
+    if (isSameTree(p2, q2)) {
+        printf("Trees p2 and q2 are the same.\n");
+    } else {
+        printf("Trees p2 and q2 are not the same.\n");  // Expected output: Trees p2 and q2 are not the same.
+    }
+
+    // Free allocated memory for both examples
+    free(p1->left);
+    free(p1->right);
+    free(p1);
+
+    free(q1->left);
+    free(q1->right);
+    free(q1);
+
+    free(p2->left);
+    free(p2);
+
+    free(q2->right);
+    free(q2);
+
+    return 0;
+}
+
+3.Invert tree
+#include <stdio.h>
+#include <stdlib.h>
+
+// Definition for a binary tree node
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+};
+
+// Function to create a new tree node
+struct TreeNode* createNode(int val) {
+    struct TreeNode* newNode = (struct TreeNode*)malloc(sizeof(struct TreeNode));
+    newNode->val = val;
+    newNode->left = NULL;
+    newNode->right = NULL;
+    return newNode;
+}
+
+// Function to invert a binary tree
+struct TreeNode* invertTree(struct TreeNode* root) {
+    if (root == NULL) {
+        return NULL;
+    }
+    
+    // Swap the left and right children
+    struct TreeNode* temp = root->left;
+    root->left = root->right;
+    root->right = temp;
+
+    // Recursively invert the left and right subtrees
+    invertTree(root->left);
+    invertTree(root->right);
+
+    return root;
+}
+
+// Helper function to print the tree in-order for testing
+void printInOrder(struct TreeNode* root) {
+    if (root == NULL) {
+        return;
+    }
+    printInOrder(root->left);
+    printf("%d ", root->val);
+    printInOrder(root->right);
+}
+
+int main() {
+    // Creating a sample binary tree
+    //       4
+    //      / \
+    //     2   7
+    //    / \ / \
+    //   1  3 6  9
+
+    struct TreeNode* root = createNode(4);
+    root->left = createNode(2);
+    root->right = createNode(7);
+    root->left->left = createNode(1);
+    root->left->right = createNode(3);
+    root->right->left = createNode(6);
+    root->right->right = createNode(9);
+
+    printf("Original tree (in-order): ");
+    printInOrder(root);
+    printf("\n");
+
+    // Inverting the binary tree
+    invertTree(root);
+
+    printf("Inverted tree (in-order): ");
+    printInOrder(root);
+    printf("\n");
+
+    // Free allocated memory
+    free(root->left->left);
+    free(root->left->right);
+    free(root->right->left);
+    free(root->right->right);
+    free(root->left);
+    free(root->right);
+    free(root);
+
+    return 0;
+}
+=============================================================================================
+
+
+								Day 10					
+
+1.file 
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_LENGTH 101  // Maximum string length (100 + 1 for null terminator)
+
+int main() {
+    char input[MAX_LENGTH];
+
+    // Prompt user for input
+    printf("Enter a string (1 to 100 characters): ");
+    fgets(input, MAX_LENGTH, stdin);
+
+    // Remove newline character from fgets
+    size_t len = strlen(input);
+    if (len > 0 && input[len - 1] == '\n') {
+        input[len - 1] = '\0';
+    }
+
+    // Write the input string to output.txt
+    FILE *file = fopen("output.txt", "w");
+    if (file == NULL) {
+        perror("Unable to open file for writing");
+        return EXIT_FAILURE;
+    }
+    fprintf(file, "%s", input);
+    fclose(file);
+
+    // Read from output.txt and display its contents
+    file = fopen("output.txt", "r");
+    if (file == NULL) {
+        perror("Unable to open file for reading");
+        return EXIT_FAILURE;
+    }
+
+    printf("Contents of output.txt:\n");
+    while (fgets(input, MAX_LENGTH, file) != NULL) {
+        printf("%s", input);
+    }
+
+    fclose(file);
+    return EXIT_SUCCESS;
+}
+
+9392055819
+
+2.words in file
+#include <stdio.h>
+#include <ctype.h>
+
+int countWordsInFile(const char *filename) {
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) {
+        perror("Unable to open file");
+        return -1;
+    }
+
+    int wordCount = 0;
+    int inWord = 0;
+    char ch;
+
+    // Read each character from the file
+    while ((ch = fgetc(file)) != EOF) {
+        if (isspace(ch)) {
+            // If current character is a space/newline, mark end of a word
+            if (inWord) {
+                wordCount++;
+                inWord = 0;
+            }
+        } else {
+            // If current character is not a space/newline, mark start of a word
+            inWord = 1;
+        }
+    }
+
+    // If the file ends with a word, increment the word count
+    if (inWord) {
+        wordCount++;
+    }
+
+    fclose(file);
+    return wordCount;
+}
+
+int main() {
+    const char *filename = "text.txt";
+    int wordCount = countWordsInFile(filename);
+
+    if (wordCount != -1) {
+        printf("The number of words in %s: %d\n", filename, wordCount);
+    }
+
+    return 0;
+}
+
+3.cpy content from one to other
+#include <stdio.h>
+#include <stdlib.h>
+
+void copyFile(const char *sourceFile, const char *destinationFile) {
+    FILE *source = fopen(sourceFile, "r");
+    FILE *destination = fopen(destinationFile, "w");
+
+    // Check if files opened successfully
+    if (source == NULL) {
+        perror("Unable to open source file");
+        return;
+    }
+    if (destination == NULL) {
+        perror("Unable to open destination file");
+        fclose(source); // Close source if destination can't be opened
+        return;
+    }
+
+    char buffer[1024]; // Buffer to store each line (assuming a line length of up to 1024 characters)
+
+    // Read from source and write to destination line by line
+    while (fgets(buffer, sizeof(buffer), source) != NULL) {
+        fputs(buffer, destination);
+    }
+
+    printf("Contents copied from %s to %s successfully.\n", sourceFile, destinationFile);
+
+    // Close both files
+    fclose(source);
+    fclose(destination);
+}
+
+int main() {
+    const char *sourceFile = "source.txt";
+    const char *destinationFile = "destination.txt";
+
+    copyFile(sourceFile, destinationFile);
+
+    return 0;
+}
+
+4.append
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_LENGTH 101  // Maximum line length (100 + 1 for null terminator)
+
+int main() {
+    char input[MAX_LENGTH];
+
+    // Prompt the user to enter a line of text
+    printf("Enter a line of text (up to 100 characters): ");
+    fgets(input, MAX_LENGTH, stdin);
+
+    // Remove newline character from the input if present
+    size_t len = strlen(input);
+    if (len > 0 && input[len - 1] == '\n') {
+        input[len - 1] = '\0';
+    }
+
+    // Open notes.txt in append mode
+    FILE *file = fopen("notes.txt", "a");
+    if (file == NULL) {
+        perror("Unable to open file");
+        return EXIT_FAILURE;
+    }
+
+    // Append the user input to the file
+    fprintf(file, "%s\n", input);
+    fclose(file);
+
+    printf("The line has been successfully appended to notes.txt.\n");
+
+    return 0;
+}
+
+5.search
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_WORD_LENGTH 21   // Maximum word length (20 + 1 for null terminator)
+#define MAX_LINE_LENGTH 1024 // Assuming each line can be up to 1024 characters
+
+void searchWordInFile(const char *filename, const char *word) {
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) {
+        perror("Unable to open file");
+        return;
+    }
+
+    char line[MAX_LINE_LENGTH];
+    int lineNumber = 0;
+    int found = 0;
+
+    // Read file line by line
+    while (fgets(line, sizeof(line), file) != NULL) {
+        lineNumber++;
+        
+        // Check if the word is present in the current line
+        if (strstr(line, word) != NULL) {
+            printf("Word \"%s\" found at line: %d\n", word, lineNumber);
+            found = 1;
+        }
+    }
+
+    if (!found) {
+        printf("Word \"%s\" not found in the file.\n", word);
+    }
+
+    fclose(file);
+}
+
+int main() {
+    char word[MAX_WORD_LENGTH];
+
+    // Prompt the user to enter the word to search for
+    printf("Enter the word to search for (up to 20 characters): ");
+    scanf("%20s", word);
+
+    const char *filename = "log.txt";
+    searchWordInFile(filename, word);
+
+    return 0;
+}
+
